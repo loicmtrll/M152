@@ -1,14 +1,14 @@
 
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="./actionPost.php" method="POST">
 
     <label for="">Description</label>
-    <textarea required rows="4" cols="50" style="height:250px;resize: none;">
+    <textarea name="commentaire" required rows="4" cols="50" style="height:250px;resize: none;">
     </textarea>
 
     <label for="img">Fichier image</label><br>
-    <input type="file" name="img" accept="image/*" required>
+    <input type="file" name="img[]" accept="image/*" required>
 
 
     <br><br><br>

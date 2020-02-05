@@ -18,7 +18,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <!-- Top menu -->
 <div class="w3-top">
   <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
-    <div class="w3-right w3-padding-16">Mon portefolio</div>
     <div class="w3-center w3-padding-16"><a href="index.php">Home</a></div>
   </div>
 </div>
