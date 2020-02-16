@@ -34,7 +34,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
    <div class="w3-container w3-padding-32 w3-center">  
     <h3>Votre profil</h3><br>
     <div class="w3-padding-32">
-    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <img src="" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
       <h4><b>Nom Prénom</b></h4>
       <h6><i></i></h6>
       <p>description du profil</p>

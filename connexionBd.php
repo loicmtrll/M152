@@ -1,18 +1,21 @@
 <?php
+
+require_once "informationBd.php";
   //Fonction qui se connecte a la bdd.
   function connectDB()
   {
 
-    static $db = null
+    static $db = null;
 
-    if($db == null){
-      try
+    if($db === null){
+      try 
       {
-        $db = new PDO('mysql:host=localhost;dbname=M152;charset=utf8', 'root', '');
-      }
-      catch (Exception $e)
+          $dbb = new PDO("mysql:host=" . SERVER . ";dbname=" . DATABASE_NAME, PSEUDO, PWD, array('charset' => 'utf8'));
+          $dbb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      } 
+      catch (PDOException $e) 
       {
-        die('Erreur : ' . $e->getMessage());
+          die('Erreur : ' . $e->getMessage());
       }
     }
 
