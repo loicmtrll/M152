@@ -14,6 +14,6 @@ if (session_status() == PHP_SESSION_NONE)
 Function uploadPost($commentaire){
 
     global $db;
-    $insertPost = $bd->prepare("INSERT INTO post (commentaire) VALUES (?)");
+    $insertPost = $db->prepare("INSERT INTO post (commentaire) VALUES (?)");
     $insertPost->execute(array($commentaire));
 }
