@@ -35,9 +35,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     <h3>Votre profil</h3><br>
     <div class="w3-padding-32">
     <img src="img/pdp.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="150" height="150">
-      <h4><b>Nom Prénom</b></h4>
+      <h4><b>Métrailler Loïc</b></h4>
       <h6><i></i></h6>
-      <p>description du profil</p>
+      <p></p>
     </div>
   </div>
   <hr>
@@ -112,9 +112,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
-      <h3>FOOTER</h3>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <h3>© Loïc Métrailler</h3>
+      <p>Site web dans le cadre du module M152.</p>
+      <p>Le site permet d'upload des posts et les gerer comme un mini reseau social</p>
     </div>  
   </footer>
 
