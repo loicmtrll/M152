@@ -1,3 +1,7 @@
+<?php 
+    require "fonction.php";
+   
+    ?>
 <!DOCTYPE html>
 <html>
 <title>Page principale</title>
@@ -37,6 +41,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     <img src="img/pdp.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="150" height="150">
       <h4><b>Métrailler Loïc</b></h4>
       <h6><i></i></h6>
+      <?php
+   recupAllPosts();
+  ?>
       <p></p>
     </div>
   </div>
@@ -116,6 +123,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <p>Site web dans le cadre du module M152.</p>
       <p>Le site permet d'upload des posts et les gerer comme un mini reseau social</p>
     </div>  
+
   </footer>
 
 <!-- End page content -->
