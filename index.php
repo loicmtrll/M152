@@ -1,3 +1,7 @@
+<?php 
+    require "fonction.php";
+   
+    ?>
 <!DOCTYPE html>
 <html>
 <title>Page principale</title>
@@ -37,74 +41,42 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     <img src="img/pdp.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="150" height="150">
       <h4><b>Métrailler Loïc</b></h4>
       <h6><i></i></h6>
+      <?php
+  
+          
+
+         /* $posts = $resultat->fetch();
+          foreach ($posts as $key => $value) {
+            echo $key."<br>";
+            echo $value."<br>";
+          }*/
+  ?>
       <p></p>
     </div>
   </div>
   <hr>
 
   <!-- First Photo Grid-->
+
+
+
+
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-      <img src="/w3images/sandwich.jpg" alt="Sandwich" style="width:100%">
-      <h3>The Perfect Sandwich, A Real NYC Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/w3images/steak.jpg" alt="Steak" style="width:100%">
-      <h3>Let Me Tell You About This Steak</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/w3images/cherries.jpg" alt="Cherries" style="width:100%">
-      <h3>Cherries, interrupted</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      <p>What else?</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/w3images/wine.jpg" alt="Pasta and Wine" style="width:100%">
-      <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
+    <?php
+      $resultat = recupAllPosts();
+      while ($posts = $resultat->fetch()) {
+        echo '<div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-display-container">          
+          <img src="img/'.$posts['nomFichierMedia'].$posts['typeMedia'].'" alt="" style="width:100%">
+          <div class=" w3-black w3-padding">'.$posts['commentaire'].'</div>
+        </div>
+      </div>';
+      }
+    ?>    
   </div>
 
 
-  
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <img src="/w3images/popsicle.jpg" alt="Popsicle" style="width:100%">
-      <h3>All I Need Is a Popsicle</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/w3images/salmon.jpg" alt="Salmon" style="width:100%">
-      <h3>Salmon For Your Skin</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/w3images/sandwich.jpg" alt="Sandwich" style="width:100%">
-      <h3>The Perfect Sandwich, A Real Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <img src="/w3images/croissant.jpg" alt="Croissant" style="width:100%">
-      <h3>Le French</h3>
-      <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
-
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-    </div>
-  </div>
-  
+   
   <hr id="about">
 
  
@@ -116,6 +88,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <p>Site web dans le cadre du module M152.</p>
       <p>Le site permet d'upload des posts et les gerer comme un mini reseau social</p>
     </div>  
+
   </footer>
 
 <!-- End page content -->
