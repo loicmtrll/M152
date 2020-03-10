@@ -69,6 +69,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
         <div class="w3-display-container">          
           <img src="img/'.$posts['nomFichierMedia'].$posts['typeMedia'].'" alt="" style="width:100%">
           <div class=" w3-black w3-padding">'.$posts['commentaire'].'</div>
+          <p><a href="supprimerPost.php?id='.$posts['idPost'].'">Supprimer</a>       <a href="ModifPost.php?id='.$posts['idPost'].'">Modifier</a></p>
         </div>
       </div>';
       }
