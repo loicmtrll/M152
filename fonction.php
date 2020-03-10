@@ -17,7 +17,7 @@ Function uploadPost($commentaire){
     $insertPost = $db->prepare("INSERT INTO post (commentaire) VALUES (?)");
     $insertPost->execute(array($commentaire));
 
-    $last_id = $insertPost->insert_id;
+    /*$last_id = $insertPost->insert_id;
 
-    return $last_id;
+    return $last_id;*/
 }

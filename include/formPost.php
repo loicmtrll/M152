@@ -24,7 +24,7 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
       $path = 'img/';         
       $maxSize = 3000000;                                 
       $extensions = array('.png', '.gif', '.jpg', '.jpeg');  
-      $idPost = uploadPost($commentaire); 
+      //$idPost = uploadPost($commentaire); 
 
       for($i=0;$i<$countfiles;$i++)
       {
@@ -35,7 +35,7 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
 
 
         $arr = explode(".", $filename, 2);
-        $nomFichierSansLeType = $arr[0].$idPost;               
+        $nomFichierSansLeType = $arr[0]/*.$idPost*/;               
         $fichier = $nomFichierSansLeType . $extension;            
 
         if(!in_array($extension, $extensions)) 
@@ -58,7 +58,7 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
             if(move_uploaded_file($_FILES['img']['tmp_name'][$i], $path . $fichier)) 
             {          
                 $erreur .= "Upload Reussi";
-                echo $idPost;
+                //echo $idPost;
                // ajouterMedia($nomFichierSansLeType,$extension,$idPost);       creer fonction d'ajout a la base de donnée        
             }
             else 
