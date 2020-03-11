@@ -17,33 +17,31 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
       $erreur .= "Veuillez rajouter au moins une image<br/>";
     }
    
-
+    $idPost = uploadPost($commentaire);
     if($erreur == ""){
 
       $countfiles = count($_FILES['img']['name']); 
       $path = 'img/';         
       $maxSize = 3000000;                                 
       $extensions = array('.png', '.gif', '.jpg', '.jpeg');  
-       
+
+     
 
       for($i=0;$i<$countfiles;$i++)
       {
-        
-        $filename = $_FILES['img']['name'][$i];                 
+        $filename = $_FILES['img']['name'][$i];
         $extension = strrchr($filename, '.');                   
         $size = filesize($_FILES['img']['tmp_name'][$i]);   
         if(!in_array($extension, $extensions)) 
         {
             $erreur .= "Le fichier envoyé n'est pas du bon type<br/>";
-        }else{
-          $idPost = uploadPost($commentaire);
+        }else{          
 
         $arr = explode(".", $filename, 2);
         $nomFichierSansLeType = $arr[0].$idPost;               
-        $fichier = $nomFichierSansLeType . $extension;            
-
+        $fichier = $nomFichierSansLeType . $extension;  
         
-
+          
         if($size>$maxSize)
         {
             $erreur .= "La taille depasse la taille maximun<br/>";
@@ -66,7 +64,7 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
                 $erreur .= "L'upload a échoué";
             }
         }
-      }
+        }
       }
   }
 }

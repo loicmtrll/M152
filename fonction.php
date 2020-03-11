@@ -21,6 +21,7 @@ Function uploadPost($commentaire){
 
     return $last_id;
 }
+
 // permet d'ajouter un media a la base de données
 Function uploadMedia($nomMedia,$extensionMedia,$id){
 
@@ -31,10 +32,34 @@ Function uploadMedia($nomMedia,$extensionMedia,$id){
 
 Function recupAllPosts(){
   global $db;
-  $recupPosts = $db->prepare("SELECT * FROM post as p, media as m WHERE p.idPost = m.idPost");
+  $recupPosts = $db->prepare("SELECT p.idPost,p.commentaire,p.creationDate,m.idMedia,m.nomFichierMedia,m.typeMedia FROM post as p, media as m WHERE p.idPost = m.idPost");
   $recupPosts->execute(); 
 
-  $posts=$recupPosts->fetch();
 
-  var_dump($posts);
+  return $recupPosts;
 } 
+
+Function deletePost($id){
+  global $db;
+  $delMedia = $db->prepare("DELETE FROM `media` WHERE `idPost` = ?");
+  $delMedia->execute(array($id)); 
+
+  $delPost = $db->prepare("DELETE FROM `post` WHERE `idPost` = ?");
+  $delPost->execute(array($id));
+}
+
+function getPostById($id){
+  global $db;
+  $reqPost = $db->prepare("SELECT * FROM `post` WHERE `idPost` = ?");
+  $reqPost->execute(array($id)); 
+  $reqPost = $reqPost->fetch();
+
+  return $reqPost;
+}
+
+function modifPost($commentaire,$id){
+  global $db;
+  $updatePost = $db->prepare("UPDATE `post` SET `commentaire`= ? WHERE `idPost` = ?");
+  $updatePost->execute(array($commentaire,$id)); 
+}
+
