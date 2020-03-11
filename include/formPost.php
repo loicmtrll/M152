@@ -23,7 +23,7 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
       $countfiles = count($_FILES['img']['name']); 
       $path = 'img/';         
       $maxSize = 3000000;                                 
-      $extensions = array('.png', '.gif', '.jpg', '.jpeg');  
+      $extensions = array('.png', '.gif', '.jpg', '.jpeg','.mp4','.mp3');  
 
      
 
@@ -78,7 +78,7 @@ if(filter_has_var(INPUT_POST,'btnSubmit')){
     <textarea name="commentaire" required rows="4" cols="50" style="height:250px;resize: none;">
     </textarea>
 
-    <input type="file" name="img[]" multiple accept=".jpg, .jpeg, .png,audio/*,video/* , image/*">
+    <input type="file" name="img[]" multiple accept=".jpg, .jpeg, .png, audio/*, video/* , image/*">
 
 
     <br><br><br>

@@ -9,6 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="css/uikit.min.css" />
+<script src="js/uikit.min.js"></script>
+<script src="js/uikit-icons.min.js"></script>
+ 
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-bar-block .w3-bar-item {padding:20px}
@@ -48,16 +52,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <!-- First Photo Grid-->
 
 
-
-
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <?php
+
+
       $resultat = recupAllPosts();
       while ($posts = $resultat->fetch()) {
         echo '<div class="w3-col l3 m6 w3-margin-bottom">
-        <div class="w3-display-container">          
-          <img src="img/'.$posts['nomFichierMedia'].$posts['typeMedia'].'" alt="" style="width:100%">
-          <div class=" w3-black w3-padding">'.$posts['commentaire'].'</div>
+        <div class="w3-display-container">    ';     
+
+         afficherMedias($posts['idPost']);
+
+
+        echo '<div class=" w3-black w3-padding">'.$posts['commentaire'].'</div>
           <p><a href="supprimerPost.php?id='.$posts['idPost'].'">Supprimer</a>       <a href="ModifPost.php?id='.$posts['idPost'].'">Modifier</a></p>
         </div>
       </div>';

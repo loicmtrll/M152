@@ -63,3 +63,52 @@ function modifPost($commentaire,$id){
   $updatePost->execute(array($commentaire,$id)); 
 }
 
+Function getMediaById($idPost){
+  global $db;
+  $reqMedia = $db->prepare("SELECT * FROM `media` WHERE `idPost` =  ?");
+  $reqMedia->execute(array($idPost)); 
+  $reqMedia = $reqMedia->fetch(PDO::FETCH_ASSOC);
+
+  return $reqMedia;
+  
+}
+
+Function afficherMedias($idPost){
+  //$medias = getMediaById($idPost);
+
+  global $db;
+  $reqMedia = $db->prepare("SELECT * FROM `media` WHERE `idPost` =  ?");
+  $reqMedia->execute(array($idPost));  
+
+  $extensionsImage = array('.png', '.gif', '.jpg', '.jpeg'); 
+   
+
+  echo '<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+  <ul class="uk-slideshow-items">';
+
+  while ($medias = $reqMedia->fetch(PDO::FETCH_ASSOC)) {
+
+    echo'<li>';
+    if (in_array($medias['typeMedia'], $extensionsImage)) {
+     echo '<img src="img/'.$medias['nomFichierMedia'].$medias['typeMedia'].'" style="width:100%; width: 250px;">';
+    }elseif ($medias['typeMedia'] == ".mp4") {
+      echo '<video controls src="img/'.$medias['nomFichierMedia'].$medias['typeMedia'].'" style="width:100%; width: 250px;" loop  autoplay="true"></video>';
+    }elseif ($medias['typeMedia'] == ".mp3") {
+      echo '<audio controls src="img/'.$medias['nomFichierMedia'].$medias['typeMedia'].'"style="width:100%; width: 250px;"></audio>';
+    }
+    echo '</li>';
+  }
+
+  echo '</ul>
+
+  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+  
+  </div>';
+
+  
+
+}
+
+
