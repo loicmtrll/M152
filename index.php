@@ -42,7 +42,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <h4><b>Métrailler Loïc</b></h4>
       <h6><i></i></h6>
       <?php
-   recupAllPosts();
+  // recupAllPosts();
   ?>
       <p></p>
     </div>
